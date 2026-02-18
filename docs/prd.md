@@ -41,15 +41,33 @@ Each service should include a brief description and key benefits.
 - Contact form for inquiries
 - Agency contact information
 
+### 2.6 Admin Management System
+- Admin login functionality with credentials:
+  - Username: Harsh@123
+  - Password: admin
+- Admin dashboard for content management:
+  - Add, edit, and remove projects in the portfolio section
+  - Add, edit, and remove testimonials
+  - Manage project details including title, description, images, and technologies used
+  - Manage testimonial details including client name, company, and testimonial content
+
 ## 3. Functional Requirements
 
-### 3.1 Content Management
-- Ability to add, edit, and remove projects in the portfolio section
-- Ability to add, edit, and remove testimonials
+### 3.1 Admin Authentication
+- Secure admin login page
+- Session management for admin users
+- Admin credentials:
+  - Username: Harsh@123
+  - Password: admin
 
-### 3.2 Responsive Design
+### 3.2 Content Management
+- Admin can add, edit, and remove projects in the portfolio section
+- Admin can add, edit, and remove testimonials
+- All content changes should be reflected immediately on the public-facing website
+
+### 3.3 Responsive Design
 - Website must be fully responsive and work seamlessly across desktop, tablet, and mobile devices
 
-### 3.3 Navigation
+### 3.4 Navigation
 - Clear navigation menu linking to all main sections
 - Smooth scrolling between sections

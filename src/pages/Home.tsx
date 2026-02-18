@@ -84,10 +84,10 @@ const Home = () => {
               Innovating the Future
             </Badge>
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] animate-fade-in">
-              Growing Businesses Through <span className="gradient-text">Online Solutions.</span>
+              Growing Businesses Through <span className="gradient-text">Online Tech Solutions.</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl animate-fade-in delay-100">
-              Averon Agency helps companies scale with cutting-edge web and mobile development. We turn your vision into high-performing digital reality.
+              Averon Agency specializes in helping businesses grow through cutting-edge website development, app building, and maintenance services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in delay-200">
               <Button size="lg" className="h-14 px-8 text-lg rounded-full" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
