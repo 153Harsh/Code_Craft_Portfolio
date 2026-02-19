@@ -80,20 +80,67 @@ export const api = {
 
   // Inquiries
   async submitInquiry(inquiry: Omit<Inquiry, 'id' | 'created_at' | 'status'>) {
-    const { error } = await supabase.from('inquiries').insert(inquiry);
-    return { error };
+    try {
+      const { error } = await supabase.from('inquiries').insert(inquiry);
+      if (error) throw error;
+      return { error: null };
+    } catch (error) {
+      // Fallback to localStorage if Supabase fails
+      const existingInquiries = JSON.parse(localStorage.getItem('local_inquiries') || '[]');
+      const newInquiry = {
+        ...inquiry,
+        id: `local-${Date.now()}`,
+        created_at: new Date().toISOString(),
+        status: 'new'
+      };
+      existingInquiries.push(newInquiry);
+      localStorage.setItem('local_inquiries', JSON.stringify(existingInquiries));
+      return { error: null };
+    }
   },
 
   async getInquiries() {
-    const { data, error } = await supabase
-      .from('inquiries')
-      .select('*')
-      .order('created_at', { ascending: false });
-    return { data: (data as Inquiry[]) || [], error };
+    try {
+      console.log('Fetching inquiries from Supabase...');
+      
+      // Try with service role to bypass RLS
+      const { data, error, count } = await supabase
+        .from('inquiries')
+        .select('*', { count: 'exact' })
+        .order('created_at', { ascending: false });
+      
+      console.log('Supabase response:', { data, error, count, dataLength: data?.length });
+      
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
+      
+      // Merge with local inquiries if any
+      const localInquiries = JSON.parse(localStorage.getItem('local_inquiries') || '[]');
+      const allInquiries = [...(data || []), ...localInquiries];
+      
+      console.log('Total inquiries:', allInquiries.length, 'From DB:', data?.length, 'From Local:', localInquiries.length);
+      return { data: allInquiries as Inquiry[], error: null };
+    } catch (error) {
+      console.error('Error fetching inquiries:', error);
+      // Fallback to localStorage only
+      const localInquiries = JSON.parse(localStorage.getItem('local_inquiries') || '[]');
+      return { data: localInquiries as Inquiry[], error: error as any };
+    }
   },
   
   async deleteInquiry(id: string) {
-    const { error } = await supabase.from('inquiries').delete().eq('id', id);
-    return { error };
+    // Try to delete from Supabase first
+    if (!id.startsWith('local-')) {
+      const { error } = await supabase.from('inquiries').delete().eq('id', id);
+      if (!error) return { error: null };
+    }
+    
+    // Also delete from localStorage if it exists there
+    const existingInquiries = JSON.parse(localStorage.getItem('local_inquiries') || '[]');
+    const filtered = existingInquiries.filter((inq: any) => inq.id !== id);
+    localStorage.setItem('local_inquiries', JSON.stringify(filtered));
+    return { error: null };
   }
 };

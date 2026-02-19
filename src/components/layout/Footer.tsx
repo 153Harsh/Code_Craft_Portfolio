@@ -1,74 +1,82 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Rocket, Mail, Phone, MapPin, Twitter, Linkedin, Github } from 'lucide-react';
+import { Wrench, Mail, Phone, MapPin, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary/30 border-t pt-16 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
-              <Rocket className="w-6 h-6 text-primary" />
-              <span className="text-xl font-bold tracking-tight">AVERON.</span>
+    <footer className="bg-secondary/20 border-t border-primary/10 pt-20 pb-10 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16 mb-16">
+          <div className="space-y-6">
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/30 transition-all rounded-full"></div>
+                <Wrench className="w-7 h-7 text-primary relative group-hover:rotate-12 transition-all duration-300" />
+              </div>
+              <span className="text-2xl font-bold tracking-tight">CodeCraft</span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed">
               Growing businesses through innovative online technology solutions. We specialize in building the future of the web.
             </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="p-2 bg-secondary rounded-full hover:text-primary transition-colors">
-                <Twitter className="w-4 h-4" />
+            <div className="flex items-center gap-3">
+              <a href="#" className="p-2.5 bg-primary/10 rounded-full hover:bg-primary/20 hover:scale-110 transition-all">
+                <Linkedin className="w-4 h-4 text-primary" />
               </a>
-              <a href="#" className="p-2 bg-secondary rounded-full hover:text-primary transition-colors">
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 bg-secondary rounded-full hover:text-primary transition-colors">
-                <Github className="w-4 h-4" />
+              <a href="#" className="p-2.5 bg-primary/10 rounded-full hover:bg-primary/20 hover:scale-110 transition-all">
+                <Instagram className="w-4 h-4 text-primary" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Services</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/#services" className="hover:text-primary transition-colors">Website Building</Link></li>
-              <li><Link to="/#services" className="hover:text-primary transition-colors">App Development</Link></li>
-              <li><Link to="/#services" className="hover:text-primary transition-colors">Maintenance & Monitoring</Link></li>
-              <li><Link to="/#services" className="hover:text-primary transition-colors">Cloud Solutions</Link></li>
+            <h4 className="font-bold text-lg mb-6">Services</h4>
+            <ul className="space-y-3.5 text-muted-foreground">
+              <li><Link to="/#services" className="hover:text-primary transition-all hover:translate-x-1 inline-block">Website Building</Link></li>
+              <li><Link to="/#services" className="hover:text-primary transition-all hover:translate-x-1 inline-block">App Development</Link></li>
+              <li><Link to="/#services" className="hover:text-primary transition-all hover:translate-x-1 inline-block">Maintenance & Monitoring</Link></li>
+              <li><Link to="/#services" className="hover:text-primary transition-all hover:translate-x-1 inline-block">Cloud Solutions</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Agency</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/#home" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link to="/#portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
-              <li><Link to="/#testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
-              <li><Link to="/#contact" className="hover:text-primary transition-colors">Contact</Link></li>
+            <h4 className="font-bold text-lg mb-6">Agency</h4>
+            <ul className="space-y-3.5 text-muted-foreground">
+              <li><Link to="/#about" className="hover:text-primary transition-all hover:translate-x-1 inline-block">About Us</Link></li>
+              <li><Link to="/#portfolio" className="hover:text-primary transition-all hover:translate-x-1 inline-block">Portfolio</Link></li>
+              <li><Link to="/#testimonials" className="hover:text-primary transition-all hover:translate-x-1 inline-block">Testimonials</Link></li>
+              <li><Link to="/#contact" className="hover:text-primary transition-all hover:translate-x-1 inline-block">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold mb-6">Contact Us</h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-primary shrink-0" />
-                <span>123 Innovation Way, Tech City, TC 10101</span>
+            <h4 className="font-bold text-lg mb-6">Contact Us</h4>
+            <ul className="space-y-4 text-muted-foreground">
+              {/* <li className="flex items-start gap-3 group">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <span className="leading-relaxed">123 Innovation Way, Tech City, TC 10101</span>
+              </li> */}
+              <li className="flex items-center gap-3 group">
+                <Mail className="w-5 h-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
+                <span>codecraftagency9@gmail.com</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary shrink-0" />
-                <span>hello@averon.agency</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span>+1 (555) 000-0000</span>
+              <li className="flex items-center gap-3 group">
+                <Phone className="w-5 h-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
+                <span>+91 7039709580</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-border/50 pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2026 Averon Agency. All rights reserved.</p>
+        <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-muted-foreground">© 2026 CodeCraft Agency. All rights reserved.</p>
+          <div className="flex gap-6 text-sm text-muted-foreground">
+            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>

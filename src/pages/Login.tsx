@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
-import { Rocket, Loader2 } from 'lucide-react';
+import { Wrench, Loader2 } from 'lucide-react';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -48,53 +48,64 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-background relative overflow-hidden">
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+      {/* Enhanced Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary/20 via-background to-background" />
+      <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[150px] animate-pulse" />
+      <div className="absolute bottom-1/4 -right-32 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px]" />
       
-      <div className="mb-8 flex items-center gap-2 relative z-10">
-        <Rocket className="w-10 h-10 text-primary" />
-        <span className="text-3xl font-bold tracking-tight">AVERON.</span>
+      {/* Logo */}
+      <div className="mb-12 flex flex-col items-center gap-4 relative z-10">
+        <div className="relative group">
+          <div className="absolute inset-0 bg-primary/30 blur-2xl group-hover:bg-primary/40 transition-all rounded-full scale-150"></div>
+          <Wrench className="w-16 h-16 text-primary relative group-hover:rotate-12 transition-all duration-500" />
+        </div>
+        <span className="text-4xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">CodeCraft</span>
       </div>
 
-      <Card className="w-full max-w-md border-primary/10 bg-secondary/5 backdrop-blur relative z-10">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl text-center">
-            {isLogin ? 'Sign In' : 'Create an Account'}
+      <Card className="w-full max-w-md border-primary/20 bg-card/50 backdrop-blur-xl relative z-10 shadow-2xl shadow-primary/10">
+        <CardHeader className="space-y-2 pb-8">
+          <CardTitle className="text-3xl text-center font-bold">
+            {isLogin ? 'Welcome Back' : 'Create Account'}
           </CardTitle>
-          <CardDescription className="text-center">
-            {isLogin ? 'Enter your credentials to access your account' : 'Sign up to join our innovation platform'}
+          <CardDescription className="text-center text-base">
+            {isLogin ? 'Enter your credentials to access the admin dashboard' : 'Sign up to join our platform'}
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="username">Username</Label>
-              <Input
-                id="username"
-                type="text"
-                placeholder="averon_admin"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                className="bg-background"
-              />
+              <Label htmlFor="username" className="text-sm font-medium">Username</Label>
+              <div className="relative group">
+                <Input
+                  id="username"
+                  type="text"
+                  placeholder="Harsh@123"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  className="bg-background/50 backdrop-blur h-12 text-base border-primary/20 focus:border-primary/40 transition-all"
+                />
+              </div>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="bg-background"
-              />
+              <Label htmlFor="password" className="text-sm font-medium">Password</Label>
+              <div className="relative group">
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className="bg-background/50 backdrop-blur h-12 text-base border-primary/20 focus:border-primary/40 transition-all"
+                />
+              </div>
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col space-y-4">
-            <Button type="submit" className="w-full h-11" disabled={loading}>
-              {loading ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
+          <CardFooter className="flex flex-col space-y-6 pt-2">
+            <Button type="submit" className="w-full h-12 text-base shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all" disabled={loading}>
+              {loading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : null}
               {isLogin ? 'Sign In' : 'Sign Up'}
             </Button>
             <div className="text-sm text-center text-muted-foreground">
@@ -102,7 +113,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => setIsLogin(!isLogin)}
-                className="text-primary hover:underline font-medium"
+                className="text-primary hover:underline font-semibold transition-all"
               >
                 {isLogin ? 'Create one' : 'Sign in'}
               </button>
@@ -111,9 +122,9 @@ const Login = () => {
         </form>
       </Card>
       
-      <div className="mt-8 text-center text-sm text-muted-foreground relative z-10">
-        <button onClick={() => navigate('/')} className="hover:text-primary transition-colors">
-          Back to Homepage
+      <div className="mt-10 text-center text-sm text-muted-foreground relative z-10">
+        <button onClick={() => navigate('/')} className="hover:text-primary transition-all font-medium hover:underline">
+          ← Back to Homepage
         </button>
       </div>
     </div>

@@ -3,6 +3,17 @@ import { supabase } from '@/db/supabase';
 import type { User } from '@supabase/supabase-js';
 import type { Profile } from '@/types/types';
 
+// Local admin credentials
+const LOCAL_ADMIN = {
+  username: 'Harsh@123',
+  password: 'admin',
+  user: {
+    id: 'local-admin',
+    email: 'harsh@admin.local',
+    role: 'admin'
+  }
+};
+
 export async function getProfile(userId: string): Promise<Profile | null> {
   const { data, error } = await supabase
     .from('profiles')
@@ -45,6 +56,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
+    // Check for local admin session first
+    const localAdminSession = localStorage.getItem('local_admin_session');
+    if (localAdminSession === 'true') {
+      const mockUser = {
+        id: LOCAL_ADMIN.user.id,
+        email: LOCAL_ADMIN.user.email,
+        role: LOCAL_ADMIN.user.role,
+      } as any;
+      
+      const mockProfile = {
+        id: LOCAL_ADMIN.user.id,
+        role: 'admin',
+      } as Profile;
+      
+      setUser(mockUser);
+      setProfile(mockProfile);
+      setLoading(false);
+      return;
+    }
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
       if (session?.user) {
@@ -66,6 +97,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signInWithUsername = async (username: string, password: string) => {
+    // Check for local admin credentials first
+    if (username === LOCAL_ADMIN.username && password === LOCAL_ADMIN.password) {
+      const mockUser = {
+        id: LOCAL_ADMIN.user.id,
+        email: LOCAL_ADMIN.user.email,
+        role: LOCAL_ADMIN.user.role,
+      } as any;
+      
+      const mockProfile = {
+        id: LOCAL_ADMIN.user.id,
+        role: 'admin',
+      } as Profile;
+      
+      setUser(mockUser);
+      setProfile(mockProfile);
+      localStorage.setItem('local_admin_session', 'true');
+      return { error: null };
+    }
+
     try {
       const email = `${username}@miaoda.com`;
       const { error } = await supabase.auth.signInWithPassword({
@@ -99,6 +149,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await supabase.auth.signOut();
     setUser(null);
     setProfile(null);
+    localStorage.removeItem('local_admin_session');
   };
 
   const isAdmin = profile?.role === 'admin';

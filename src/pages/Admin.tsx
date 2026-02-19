@@ -12,7 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { useForm } from 'react-hook-form';
 import { api } from '@/db/api';
 import { Project, Testimonial, Inquiry } from '@/types';
-import { Plus, Trash2, Edit2, Rocket, Briefcase, MessageSquare, Mail, Loader2, ImagePlus } from 'lucide-react';
+import { Plus, Trash2, Edit2, Briefcase, MessageSquare, Mail, Loader2, ImagePlus } from 'lucide-react';
 import { toast } from 'sonner';
 import AppLayout from '@/components/layout/AppLayout';
 import { supabase } from '@/db/supabase';

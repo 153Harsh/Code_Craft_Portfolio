@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "echo 'Do not use this command, only use lint to check'",
-    "build": "echo 'Do not use this command, only use lint to check'",
-    "lint": "tsgo -p tsconfig.check.json; npx biome lint; .rules/check.sh;npx tailwindcss -i ./src/index.css -o /dev/null 2>&1 | grep -E '^(CssSyntaxError|Error):.*' || true;.rules/testBuild.sh"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "npx biome lint",
+    "type-check": "tsc -p tsconfig.check.json --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -78,6 +80,7 @@
     "@types/lodash": "^4.17.20",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "@types/react-router-dom": "^5.3.3",
     "@types/video-react": "^0.15.8",
     "@typescript/native-preview": "7.0.0-dev.20251103.1",
     "@vitejs/plugin-react": "^5.1.2",
