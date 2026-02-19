@@ -108,7 +108,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 relative">
+      {/* <section className="py-20 relative">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
@@ -124,7 +124,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About Section */}
       <section id="about" className="py-24 md:py-32 relative overflow-hidden">
