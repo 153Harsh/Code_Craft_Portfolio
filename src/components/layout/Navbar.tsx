@@ -54,7 +54,7 @@ const Navbar = () => {
             <Wrench className="w-9 h-9 text-primary group-hover:rotate-12 transition-all duration-300 relative" />
           </div>
           <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
-            CodeCraft
+            CoreKraft
           </span>
         </Link>
 

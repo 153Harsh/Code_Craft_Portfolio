@@ -89,7 +89,7 @@ const Home = () => {
               <span className="gradient-text block mt-2">Online Tech Solutions</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto animate-fade-in delay-200">
-              codecraft specializes in helping businesses grow through cutting-edge website development, app building, and maintenance services.
+              CoreKraft specializes in helping businesses grow through cutting-edge website development, app building, and maintenance services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-300">
               <Button size="lg" className="h-14 px-10 text-lg rounded-full shadow-2xl shadow-primary/25 hover:shadow-primary/40 transition-all" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
@@ -137,7 +137,7 @@ const Home = () => {
                 Building Digital Excellence <span className="text-primary">Since 2026</span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                codecraft is a full-service digital agency dedicated to transforming businesses through innovative technology solutions. We combine creativity, technical expertise, and strategic thinking to deliver exceptional results.
+                CoreKraft is a full-service digital agency dedicated to transforming businesses through innovative technology solutions. We combine creativity, technical expertise, and strategic thinking to deliver exceptional results.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Our team of experienced developers, designers, and strategists work collaboratively to bring your vision to life. From startups to enterprises, we've helped businesses across industries establish their digital presence and achieve their goals.
@@ -320,7 +320,7 @@ const Home = () => {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge variant="secondary" className="mb-4">Testimonials</Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Client Success Stories</h2>
-            <p className="text-lg text-muted-foreground">Don't just take our word for it. Here's what our partners have to say about working with codecraft.</p>
+            <p className="text-lg text-muted-foreground">Don't just take our word for it. Here's what our partners have to say about working with CoreKraft.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((t) => (
@@ -363,7 +363,7 @@ const Home = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button size="lg" variant="outline" className="h-16 px-12 text-lg border-primary/20 hover:border-primary/40" asChild>
-                <a href="mailto:codecraftagency9@gmail.com">Email Us</a>
+                <a href="mailto:CoreKraftagency9@gmail.com">Email Us</a>
               </Button>
             </div>
           </div>
@@ -390,7 +390,7 @@ const Home = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground mb-2">Email us at</p>
-                    <p className="text-xl font-semibold">codecraftagency9@gmail.com</p>
+                    <p className="text-xl font-semibold">CoreKraftagency9@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-6 group">

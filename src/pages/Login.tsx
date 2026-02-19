@@ -60,7 +60,7 @@ const Login = () => {
           <div className="absolute inset-0 bg-primary/30 blur-2xl group-hover:bg-primary/40 transition-all rounded-full scale-150"></div>
           <Wrench className="w-16 h-16 text-primary relative group-hover:rotate-12 transition-all duration-500" />
         </div>
-        <span className="text-4xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">CodeCraft</span>
+        <span className="text-4xl font-bold tracking-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">CoreKraft</span>
       </div>
 
       <Card className="w-full max-w-md border-primary/20 bg-card/50 backdrop-blur-xl relative z-10 shadow-2xl shadow-primary/10">

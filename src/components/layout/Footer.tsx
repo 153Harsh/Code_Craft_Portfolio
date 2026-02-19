@@ -17,7 +17,7 @@ const Footer = () => {
                 <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/30 transition-all rounded-full"></div>
                 <Wrench className="w-7 h-7 text-primary relative group-hover:rotate-12 transition-all duration-300" />
               </div>
-              <span className="text-2xl font-bold tracking-tight">CodeCraft</span>
+              <span className="text-2xl font-bold tracking-tight">CoreKraft</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed">
               Growing businesses through innovative online technology solutions. We specialize in building the future of the web.
@@ -61,7 +61,7 @@ const Footer = () => {
               </li> */}
               <li className="flex items-center gap-3 group">
                 <Mail className="w-5 h-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
-                <span>codecraftagency9@gmail.com</span>
+                <span>CoreKraftagency9@gmail.com</span>
               </li>
               <li className="flex items-center gap-3 group">
                 <Phone className="w-5 h-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
@@ -72,7 +72,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">© 2026 CodeCraft Agency. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 CoreKraft Agency. All rights reserved.</p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
